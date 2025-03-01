@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { Phone, Menu, X, Telegram, MessageCircle } from "lucide-react";
+import { Phone, Menu, X, MessageCircle, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import OrderModal from "./OrderModal";
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
                 rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-colors duration-300"
               >
-                <Telegram className="h-5 w-5" />
+                <Send className="h-5 w-5" />
               </a>
               <a
                 href="https://wa.me/79227837198"
@@ -120,7 +120,7 @@ const Header: React.FC = () => {
                 rel="noopener noreferrer"
                 className="text-primary"
               >
-                <Telegram className="h-6 w-6" />
+                <Send className="h-6 w-6" />
               </a>
               <a
                 href="https://wa.me/79227837198"

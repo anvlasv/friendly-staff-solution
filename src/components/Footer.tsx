@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin } from "lucide-react";
-import { Telegram, MessageCircle } from "lucide-react";
+import { MessageCircle, Send } from "lucide-react";
 
 const Footer: React.FC = () => {
   const year = new Date().getFullYear();
@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
                 <Instagram className="h-5 w-5" />
               </a>
               <a href="https://t.me/tmnsklwork" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-primary transition-colors">
-                <Telegram className="h-5 w-5" />
+                <Send className="h-5 w-5" />
               </a>
               <a href="https://wa.me/79227837198" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-primary transition-colors">
                 <MessageCircle className="h-5 w-5" />
