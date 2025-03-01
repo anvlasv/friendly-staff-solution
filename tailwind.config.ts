@@ -122,6 +122,8 @@ export default {
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
+				display: ['Montserrat', 'sans-serif'],
+				body: ['Open Sans', 'sans-serif'],
 			},
 		}
 	},

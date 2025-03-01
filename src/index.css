@@ -1,6 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,16 +14,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    --primary: 210 100% 50%;
+    --primary: 210 100% 40%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96%;
+    --secondary: 142 71% 45%;
     --secondary-foreground: 222 47% 11%;
 
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
 
-    --accent: 210 100% 40%;
+    --accent: 142 71% 45%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84% 60%;
@@ -60,7 +58,7 @@
     --primary: 210 100% 50%;
     --primary-foreground: 222 47% 11%;
 
-    --secondary: 217 33% 18%;
+    --secondary: 142 71% 45%;
     --secondary-foreground: 210 40% 98%;
 
     --muted: 217 33% 18%;
@@ -97,7 +95,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight;
+    @apply font-display font-semibold tracking-tight;
   }
 
   h1 {
@@ -122,6 +120,10 @@
 
   h6 {
     @apply text-base md:text-lg;
+  }
+
+  p, span, a, li, button, input, textarea {
+    @apply font-body;
   }
 }
 
@@ -149,6 +151,14 @@
   
   .hover-lift {
     @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .service-card {
+    @apply relative overflow-hidden rounded-xl shadow-md transition-all duration-300 hover:shadow-lg;
+  }
+
+  .service-card-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent;
   }
 }
 

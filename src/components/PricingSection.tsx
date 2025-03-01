@@ -60,28 +60,28 @@ const pricingData = [
     keywords: "уборщики для офиса",
   },
   {
-    title: "Охранники",
-    description: "Контроль и обеспечение безопасности объектов",
-    price: "от 220 ₽/час",
+    title: "Мерчендайзеры",
+    description: "Выкладка товара и контроль ассортимента",
+    price: "от 200 ₽/час",
     features: [
-      "Наличие лицензии",
-      "Опыт работы от 2 лет",
-      "Контроль доступа",
-      "Видеонаблюдение",
-      "Оперативное реагирование",
+      "Опыт работы от 6 месяцев",
+      "Знание стандартов выкладки",
+      "Умение работать с планограммами",
+      "Контроль товарных остатков",
+      "Оформление витрин и POS-материалов",
     ],
-    keywords: "аренда персонала",
+    keywords: "аренда персонала мерчендайзинг",
   },
   {
-    title: "Официанты",
-    description: "Обслуживание мероприятий и заведений",
+    title: "Горничные",
+    description: "Обслуживание гостиниц и апартаментов",
     price: "от 210 ₽/час",
     features: [
       "Опыт работы от 1 года",
-      "Знание стандартов сервиса",
-      "Презентабельный внешний вид",
-      "Коммуникабельность",
-      "Работа на мероприятиях любого формата",
+      "Знание стандартов гостиничного сервиса",
+      "Внимательность к деталям",
+      "Использование профессиональных средств",
+      "Работа в отелях любого класса",
     ],
     keywords: "аутстафинг персонала",
   },
@@ -100,7 +100,7 @@ const PricingSection: React.FC = () => {
     <section id="pricing" className="py-20 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-blue-100/30 blur-3xl z-0" />
-      <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-cyan-100/30 blur-3xl z-0" />
+      <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-green-100/30 blur-3xl z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
@@ -118,7 +118,7 @@ const PricingSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl md:text-4xl font-bold"
+            className="text-3xl md:text-4xl font-bold font-display"
           >
             Стоимость услуг аутстаффинга
           </motion.h2>
@@ -127,7 +127,7 @@ const PricingSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto"
+            className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto font-body"
           >
             Мы предлагаем конкурентоспособные цены на аренду персонала разных
             категорий. Итоговая стоимость зависит от количества сотрудников,
@@ -159,14 +159,14 @@ const PricingSection: React.FC = () => {
                   </div>
                 )}
                 
-                <h3 className="text-xl font-semibold mb-2">{plan.title}</h3>
-                <p className="text-muted-foreground mb-4">{plan.description}</p>
+                <h3 className="text-xl font-semibold mb-2 font-display">{plan.title}</h3>
+                <p className="text-muted-foreground mb-4 font-body">{plan.description}</p>
                 
                 <div className="mb-6">
                   <span className="text-3xl font-bold">{plan.price}</span>
                 </div>
                 
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 mb-8 font-body">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start">
                       <Check className="h-5 w-5 text-primary shrink-0 mr-3 mt-0.5" />
@@ -192,7 +192,7 @@ const PricingSection: React.FC = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <p className="text-lg mb-6">
+          <p className="text-lg mb-6 font-body">
             Нужен персонал другой категории или особые условия сотрудничества?
           </p>
           <GlassButton onClick={() => openOrderModal("персонал")}>

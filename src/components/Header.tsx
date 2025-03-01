@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { Phone, Menu, X } from "lucide-react";
+import { Phone, Menu, X, Telegram, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import OrderModal from "./OrderModal";
@@ -37,13 +37,13 @@ const Header: React.FC = () => {
           <div className="flex justify-between items-center">
             {/* Logo */}
             <div className="flex items-center">
-              <a href="#" className="text-2xl font-bold text-primary">
+              <a href="#" className="text-2xl font-bold text-primary font-display">
                 СтаффПро
               </a>
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden md:flex items-center space-x-8 font-body">
               <a
                 href="#services"
                 className="text-foreground hover:text-primary transition-colors duration-300"
@@ -76,18 +76,34 @@ const Header: React.FC = () => {
               </a>
             </nav>
 
-            {/* Phone Number */}
-            <div className="hidden md:flex items-center">
+            {/* Phone Number and Messengers */}
+            <div className="hidden md:flex items-center space-x-4">
               <a
                 href="tel:+79240424890"
                 className="flex items-center text-foreground hover:text-primary transition-colors duration-300"
               >
                 <Phone className="mr-2 h-4 w-4" />
-                <span>7-924-042-48-90</span>
+                <span>+7 (924) 042-48-90</span>
+              </a>
+              <a
+                href="https://t.me/tmnsklwork"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground hover:text-primary transition-colors duration-300"
+              >
+                <Telegram className="h-5 w-5" />
+              </a>
+              <a
+                href="https://wa.me/79227837198"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground hover:text-primary transition-colors duration-300"
+              >
+                <MessageCircle className="h-5 w-5" />
               </a>
               <Button
                 onClick={() => setModalOpen(true)}
-                className="ml-6 bg-primary text-white hover:bg-primary/90"
+                className="ml-2 bg-primary text-white hover:bg-primary/90"
               >
                 Заказать персонал
               </Button>
@@ -97,6 +113,22 @@ const Header: React.FC = () => {
             <div className="md:hidden flex items-center space-x-4">
               <a href="tel:+79240424890" className="text-primary">
                 <Phone className="h-6 w-6" />
+              </a>
+              <a
+                href="https://t.me/tmnsklwork"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary"
+              >
+                <Telegram className="h-6 w-6" />
+              </a>
+              <a
+                href="https://wa.me/79227837198"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary"
+              >
+                <MessageCircle className="h-6 w-6" />
               </a>
               <button
                 onClick={toggleMobileMenu}
@@ -120,7 +152,7 @@ const Header: React.FC = () => {
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <div className="flex flex-col h-full pt-20 px-6 pb-6 space-y-8">
+        <div className="flex flex-col h-full pt-20 px-6 pb-6 space-y-8 font-body">
           <nav className="flex flex-col space-y-6 text-lg">
             <a
               href="#services"
