@@ -1,7 +1,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Linkedin } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { MessageCircle, Send } from "lucide-react";
 
 const Footer: React.FC = () => {
@@ -23,15 +23,9 @@ const Footer: React.FC = () => {
           >
             <h4 className="text-xl font-semibold mb-4 font-display">СтаффПро</h4>
             <p className="text-muted-foreground mb-6 font-body">
-              Профессиональный аутстафинг персонала для вашего бизнеса. Предоставляем квалифицированных сотрудников для различных задач, включая мерчендайзинг.
+              Профессиональное предоставление персонала для вашего бизнеса. Предоставляем квалифицированных сотрудников для различных задач, включая мерчендайзинг.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="h-10 w-10 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-primary transition-colors">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="h-10 w-10 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-primary transition-colors">
-                <Instagram className="h-5 w-5" />
-              </a>
               <a href="https://t.me/tmnsklwork" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-primary transition-colors">
                 <Send className="h-5 w-5" />
               </a>
@@ -162,7 +156,7 @@ const Footer: React.FC = () => {
         
         <div className="pt-8 flex flex-wrap justify-between items-center">
           <p className="text-sm text-muted-foreground font-body">
-            © {year} СтаффПро. Все права защищены. Аутстаффинг персонала, грузчики на заказ, работники для склада, уборщики для офиса, мерчендайзинг.
+            © {year} СтаффПро. Все права защищены. Предоставление персонала, грузчики на заказ, работники для склада, уборщики для офиса, мерчендайзинг.
           </p>
           <p className="text-sm text-muted-foreground mt-2 sm:mt-0 font-body">
             Дизайн <a href="https://t.me/person_grata" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">SV-Group</a>

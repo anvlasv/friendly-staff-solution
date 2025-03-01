@@ -70,7 +70,7 @@ const pricingData = [
       "Контроль товарных остатков",
       "Оформление витрин и POS-материалов",
     ],
-    keywords: "аренда персонала мерчендайзинг",
+    keywords: "предоставление персонала мерчендайзинг",
   },
   {
     title: "Горничные",
@@ -83,7 +83,7 @@ const pricingData = [
       "Использование профессиональных средств",
       "Работа в отелях любого класса",
     ],
-    keywords: "аутстафинг персонала",
+    keywords: "предоставление персонала",
   },
 ];
 
@@ -120,7 +120,7 @@ const PricingSection: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-3xl md:text-4xl font-bold font-display"
           >
-            Стоимость услуг аутстаффинга
+            Стоимость услуг предоставления персонала
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: -10 }}
@@ -129,7 +129,7 @@ const PricingSection: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto font-body"
           >
-            Мы предлагаем конкурентоспособные цены на аренду персонала разных
+            Мы предлагаем конкурентоспособные цены на предоставление персонала разных
             категорий. Итоговая стоимость зависит от количества сотрудников,
             срока работы и сложности задач.
           </motion.p>
@@ -145,7 +145,7 @@ const PricingSection: React.FC = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <GlassCard
-                className={`h-full p-6 relative overflow-hidden ${
+                className={`h-full p-6 relative overflow-hidden flex flex-col ${
                   plan.popular
                     ? "border-primary/30 shadow-lg"
                     : "border-white/20"
@@ -166,7 +166,7 @@ const PricingSection: React.FC = () => {
                   <span className="text-3xl font-bold">{plan.price}</span>
                 </div>
                 
-                <ul className="space-y-3 mb-8 font-body">
+                <ul className="space-y-3 mb-8 font-body flex-grow">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start">
                       <Check className="h-5 w-5 text-primary shrink-0 mr-3 mt-0.5" />
