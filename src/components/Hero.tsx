@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
               className="text-lg text-muted-foreground"
             >
               Предоставляем квалифицированный персонал для решения ваших задач: 
-              разнорабочие, грузчики, упаковщики, уборщики, охранники, официанты и другие 
+              разнорабочие, грузчики, упаковщики, уборщики, мерчендайзеры и другие 
               категории работников. Аренда персонала на день или на постоянной основе.
             </motion.p>
             
@@ -91,8 +91,8 @@ const Hero: React.FC = () => {
                     <p className="text-primary font-semibold mt-2">от 190 ₽/час</p>
                   </div>
                   <div className="p-4 bg-white/50 rounded-lg text-center hover:shadow-md transition-all duration-300">
-                    <h4 className="font-medium">Охранники</h4>
-                    <p className="text-primary font-semibold mt-2">от 220 ₽/час</p>
+                    <h4 className="font-medium">Мерчендайзеры</h4>
+                    <p className="text-primary font-semibold mt-2">от 200 ₽/час</p>
                   </div>
                 </div>
                 
