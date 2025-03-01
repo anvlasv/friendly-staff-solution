@@ -1,11 +1,17 @@
 
 import React, { useState } from "react";
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { GlassButton } from "./ui/Glass";
+import { toast } from "sonner";
 
 interface OrderModalProps {
   open: boolean;
@@ -13,10 +19,17 @@ interface OrderModalProps {
   serviceType?: string;
 }
 
-const OrderModal: React.FC<OrderModalProps> = ({ open, onOpenChange, serviceType = "персонал" }) => {
+const OrderModal: React.FC<OrderModalProps> = ({
+  open,
+  onOpenChange,
+  serviceType = "персонал",
+}) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [comment, setComment] = useState("");
+  const [selectedService, setSelectedService] = useState(serviceType || "");
+  const [quantity, setQuantity] = useState("");
+  const [duration, setDuration] = useState("");
+  const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -24,84 +37,134 @@ const OrderModal: React.FC<OrderModalProps> = ({ open, onOpenChange, serviceType
     setLoading(true);
 
     try {
-      // In a real implementation, you would send this data to your backend or email service
-      console.log("Sending order to barm.70@gmail.com:", {
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // In a real implementation, you would send this data to your backend
+      console.log("Order submitted:", {
         name,
         phone,
-        comment,
-        serviceType,
+        selectedService,
+        quantity,
+        duration,
+        message,
       });
 
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
       toast.success("Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.");
-      
+
       // Reset form
       setName("");
       setPhone("");
-      setComment("");
-      
-      // Close modal
+      setQuantity("");
+      setDuration("");
+      setMessage("");
       onOpenChange(false);
     } catch (error) {
       toast.error("Произошла ошибка при отправке заявки. Пожалуйста, попробуйте еще раз.");
-      console.error("Error sending order:", error);
     } finally {
       setLoading(false);
     }
   };
 
+  // Set the service type when the component mounts or when serviceType changes
+  React.useEffect(() => {
+    if (serviceType) {
+      setSelectedService(serviceType);
+    }
+  }, [serviceType]);
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md glass-panel bg-white/90 backdrop-blur-md border border-white/20 animate-enter">
+      <DialogContent className="sm:max-w-[500px] bg-white/95 backdrop-blur-sm border border-white/20 shadow-lg">
         <DialogHeader>
-          <DialogTitle className="text-2xl">Заказать {serviceType}</DialogTitle>
+          <DialogTitle className="text-2xl font-semibold">Быстрый расчет стоимости</DialogTitle>
           <DialogDescription>
-            Заполните форму, и мы свяжемся с вами в ближайшее время для уточнения деталей.
+            Заполните форму, и мы рассчитаем стоимость предоставления персонала для вашей компании.
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <Input
-              placeholder="Ваше имя"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              className="bg-white/50 border-white/30"
-            />
+
+        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <Input
+                placeholder="Ваше имя"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className="bg-white/50"
+              />
+            </div>
+            <div>
+              <Input
+                placeholder="Номер телефона"
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required
+                className="bg-white/50"
+              />
+            </div>
           </div>
+
           <div>
-            <Input
-              placeholder="Номер телефона"
-              type="tel"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+            <Select
+              value={selectedService}
+              onValueChange={setSelectedService}
               required
-              className="bg-white/50 border-white/30"
-            />
+            >
+              <SelectTrigger className="bg-white/50">
+                <SelectValue placeholder="Выберите категорию персонала" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Грузчики">Грузчики</SelectItem>
+                <SelectItem value="Разнорабочие">Разнорабочие</SelectItem>
+                <SelectItem value="Упаковщики">Упаковщики</SelectItem>
+                <SelectItem value="Уборщики">Уборщики</SelectItem>
+                <SelectItem value="Мерчендайзеры">Мерчендайзеры</SelectItem>
+                <SelectItem value="Горничные">Горничные</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <Input
+                placeholder="Количество сотрудников"
+                type="number"
+                min="1"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+                required
+                className="bg-white/50"
+              />
+            </div>
+            <div>
+              <Input
+                placeholder="Срок работы (в днях)"
+                type="number"
+                min="1"
+                value={duration}
+                onChange={(e) => setDuration(e.target.value)}
+                required
+                className="bg-white/50"
+              />
+            </div>
+          </div>
+
           <div>
             <Textarea
-              placeholder="Комментарий к заказу"
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-              className="bg-white/50 border-white/30 min-h-[100px]"
+              placeholder="Дополнительная информация"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className="bg-white/50 min-h-[80px]"
             />
           </div>
-          <DialogFooter className="sm:justify-between mt-4 gap-3">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={() => onOpenChange(false)}
-              className="w-full sm:w-auto"
-            >
-              Отмена
-            </Button>
-            <GlassButton type="submit" className="w-full sm:w-auto" disabled={loading}>
-              {loading ? "Отправка..." : "Отправить заявку"}
+
+          <div className="pt-2">
+            <GlassButton type="submit" className="w-full" disabled={loading}>
+              {loading ? "Отправка..." : "Рассчитать стоимость"}
             </GlassButton>
-          </DialogFooter>
+          </div>
         </form>
       </DialogContent>
     </Dialog>
