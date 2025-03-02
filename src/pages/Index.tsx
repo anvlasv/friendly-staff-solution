@@ -9,7 +9,7 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import ServiceSection from "@/components/ServiceSection";
-import FAQ from "@/components/FAQ"; // Import the new FAQ component
+import FAQ from "@/components/FAQ";
 
 const Index = () => {
   return (
@@ -27,7 +27,7 @@ const Index = () => {
           <Benefits />
           <PricingSection />
           <CaseStudies />
-          <FAQ /> {/* Add the FAQ component here, before the contact form */}
+          <FAQ />
           <ContactForm />
         </main>
         <script type="application/ld+json">

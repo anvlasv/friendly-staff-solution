@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import InputMask from "react-input-mask";
 
 const ContactForm: React.FC = () => {
   const [name, setName] = useState("");
@@ -100,14 +101,23 @@ const ContactForm: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <Input
-                    placeholder="Номер телефона"
-                    type="tel"
+                  <InputMask
+                    mask="+7 (999) 999-99-99"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     required
-                    className="bg-white/50 border-white/30"
-                  />
+                  >
+                    {/* @ts-ignore */}
+                    {(inputProps) => (
+                      <Input
+                        {...inputProps}
+                        type="tel"
+                        placeholder="Номер телефона"
+                        required
+                        className="bg-white/50 border-white/30"
+                      />
+                    )}
+                  </InputMask>
                 </div>
                 <div>
                   <Textarea

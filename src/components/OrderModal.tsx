@@ -12,6 +12,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { GlassButton } from "./ui/Glass";
 import { toast } from "sonner";
+import InputMask from "react-input-mask";
 
 interface OrderModalProps {
   open: boolean;
@@ -95,14 +96,23 @@ const OrderModal: React.FC<OrderModalProps> = ({
               />
             </div>
             <div>
-              <Input
-                placeholder="Номер телефона"
-                type="tel"
+              <InputMask
+                mask="+7 (999) 999-99-99"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 required
-                className="bg-white/50"
-              />
+              >
+                {/* @ts-ignore */}
+                {(inputProps) => (
+                  <Input
+                    {...inputProps}
+                    type="tel"
+                    placeholder="Номер телефона"
+                    required
+                    className="bg-white/50"
+                  />
+                )}
+              </InputMask>
             </div>
           </div>
 
