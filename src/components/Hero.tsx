@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { GlassButton, GlassPanel } from "./ui/Glass";
 import { motion } from "framer-motion";
@@ -105,14 +104,13 @@ const Hero: React.FC = () => {
               </div>
             </GlassPanel>
             
-            {/* Decorative elements */}
             <div className="absolute -top-5 -right-5 w-10 h-10 rounded-full bg-primary/20 animate-float" style={{ animationDelay: "1s" }} />
             <div className="absolute -bottom-7 -left-7 w-14 h-14 rounded-full bg-primary/30 animate-float" style={{ animationDelay: "2s" }} />
           </div>
         </div>
       </div>
       
-      <OrderModal open={modalOpen} onOpenChange={setModalOpen} />
+      <OrderModal open={modalOpen} onOpenChange={setModalOpen} isIndividualRequest={false} />
     </section>
   );
 };

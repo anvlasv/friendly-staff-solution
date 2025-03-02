@@ -17,12 +17,14 @@ interface OrderModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   serviceType?: string;
+  isIndividualRequest?: boolean;
 }
 
 const OrderModal: React.FC<OrderModalProps> = ({
   open,
   onOpenChange,
   serviceType = "персонал",
+  isIndividualRequest = false,
 }) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -78,7 +80,9 @@ const OrderModal: React.FC<OrderModalProps> = ({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[500px] bg-white/95 backdrop-blur-sm border border-white/20 shadow-lg">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-semibold">Индивидуальный запрос</DialogTitle>
+          <DialogTitle className="text-2xl font-semibold">
+            {isIndividualRequest ? "Индивидуальный запрос" : "Быстрый расчет стоимости"}
+          </DialogTitle>
           <DialogDescription>
             Заполните форму, и мы рассчитаем стоимость предоставления персонала для вашей компании.
           </DialogDescription>
@@ -118,7 +122,7 @@ const OrderModal: React.FC<OrderModalProps> = ({
 
           <div>
             <Input
-              placeholder="Какой персонал нужен"
+              placeholder="Тип персонала"
               value={selectedService}
               onChange={(e) => setSelectedService(e.target.value)}
               required
@@ -162,7 +166,9 @@ const OrderModal: React.FC<OrderModalProps> = ({
 
           <div className="pt-2">
             <GlassButton type="submit" className="w-full" disabled={loading}>
-              {loading ? "Отправка..." : "Получить индивидуальное предложение"}
+              {loading ? "Отправка..." : isIndividualRequest ? 
+                "Получить индивидуальное предложение" : 
+                "Рассчитать стоимость"}
             </GlassButton>
           </div>
         </form>

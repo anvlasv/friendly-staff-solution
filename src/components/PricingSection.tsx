@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { GlassCard, GlassButton } from "./ui/Glass";
 import OrderModal from "./OrderModal";
@@ -90,9 +89,11 @@ const pricingData = [
 const PricingSection: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState("");
+  const [isIndividualRequest, setIsIndividualRequest] = useState(false);
 
-  const openOrderModal = (service: string) => {
+  const openOrderModal = (service: string, individual: boolean = false) => {
     setSelectedService(service);
+    setIsIndividualRequest(individual);
     setModalOpen(true);
   };
 
@@ -180,7 +181,7 @@ const PricingSection: React.FC = () => {
                 
                 <div className="mt-auto">
                   <button
-                    onClick={() => openOrderModal(plan.title)}
+                    onClick={() => openOrderModal(plan.title, false)}
                     className="w-full py-2.5 bg-primary/90 text-white rounded-lg hover:bg-primary/100 transition-all duration-300 shadow-sm hover:shadow-md"
                   >
                     Заказать
@@ -195,7 +196,7 @@ const PricingSection: React.FC = () => {
           <p className="text-lg mb-6 font-body">
             Нужен персонал другой категории или особые условия сотрудничества?
           </p>
-          <GlassButton onClick={() => openOrderModal("персонал")}>
+          <GlassButton onClick={() => openOrderModal("персонал", true)}>
             Получить индивидуальное предложение
           </GlassButton>
         </div>
@@ -204,7 +205,8 @@ const PricingSection: React.FC = () => {
       <OrderModal 
         open={modalOpen} 
         onOpenChange={setModalOpen} 
-        serviceType={selectedService} 
+        serviceType={selectedService}
+        isIndividualRequest={isIndividualRequest}
       />
     </section>
   );
