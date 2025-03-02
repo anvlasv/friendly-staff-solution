@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -34,6 +34,15 @@ const OrderModal: React.FC<OrderModalProps> = ({
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const resetForm = () => {
+    setName("");
+    setPhone("");
+    setSelectedService(serviceType || "");
+    setQuantity("");
+    setDuration("");
+    setMessage("");
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -55,12 +64,7 @@ const OrderModal: React.FC<OrderModalProps> = ({
       toast.success("Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.");
 
       // Reset form
-      setName("");
-      setPhone("");
-      setSelectedService("");
-      setQuantity("");
-      setDuration("");
-      setMessage("");
+      resetForm();
       onOpenChange(false);
     } catch (error) {
       toast.error("Произошла ошибка при отправке заявки. Пожалуйста, попробуйте еще раз.");
@@ -70,11 +74,18 @@ const OrderModal: React.FC<OrderModalProps> = ({
   };
 
   // Set the service type when the component mounts or when serviceType changes
-  React.useEffect(() => {
+  useEffect(() => {
     if (serviceType) {
       setSelectedService(serviceType);
     }
   }, [serviceType]);
+
+  // Reset form when modal is closed
+  useEffect(() => {
+    if (!open) {
+      resetForm();
+    }
+  }, [open]);
 
   // Service options for the select field
   const serviceOptions = [

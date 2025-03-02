@@ -154,11 +154,11 @@ const Footer: React.FC = () => {
           </motion.div>
         </div>
         
-        <div className="pt-8 flex flex-wrap justify-between items-center">
-          <p className="text-sm text-muted-foreground font-body">
-            © {year} СтаффПро. Все права защищены. Предоставление персонала, грузчики на заказ, работники для склада, уборщики для офиса, мерчендайзинг.
+        <div className="pt-8 flex flex-col items-center text-center">
+          <p className="text-sm text-muted-foreground font-body mb-2">
+            © {year} СтаффПро. Все права защищены.
           </p>
-          <p className="text-sm text-muted-foreground mt-2 sm:mt-0 font-body">
+          <p className="text-sm text-muted-foreground font-body">
             Дизайн <a href="https://t.me/person_grata" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">SV-Group</a>
           </p>
         </div>
