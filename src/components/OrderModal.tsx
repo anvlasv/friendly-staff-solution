@@ -76,6 +76,16 @@ const OrderModal: React.FC<OrderModalProps> = ({
     }
   }, [serviceType]);
 
+  // Service options for the select field
+  const serviceOptions = [
+    "Грузчики",
+    "Разнорабочие",
+    "Упаковщики",
+    "Уборщики",
+    "Мерчендайзеры",
+    "Горничные",
+  ];
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[500px] bg-white/95 backdrop-blur-sm border border-white/20 shadow-lg">
@@ -121,13 +131,29 @@ const OrderModal: React.FC<OrderModalProps> = ({
           </div>
 
           <div>
-            <Input
-              placeholder="Тип персонала"
-              value={selectedService}
-              onChange={(e) => setSelectedService(e.target.value)}
-              required
-              className="bg-white/50"
-            />
+            {isIndividualRequest ? (
+              <Input
+                placeholder="Тип персонала"
+                value={selectedService}
+                onChange={(e) => setSelectedService(e.target.value)}
+                required
+                className="bg-white/50"
+              />
+            ) : (
+              <select
+                value={selectedService}
+                onChange={(e) => setSelectedService(e.target.value)}
+                required
+                className="w-full px-3 py-2 bg-white/50 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+              >
+                <option value="" disabled>Выберите тип персонала</option>
+                {serviceOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            )}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
