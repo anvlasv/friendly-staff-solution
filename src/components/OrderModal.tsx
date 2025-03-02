@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { GlassButton } from "./ui/Glass";
 import { toast } from "sonner";
 import InputMask from "react-input-mask";
@@ -56,6 +55,7 @@ const OrderModal: React.FC<OrderModalProps> = ({
       // Reset form
       setName("");
       setPhone("");
+      setSelectedService("");
       setQuantity("");
       setDuration("");
       setMessage("");
@@ -78,7 +78,7 @@ const OrderModal: React.FC<OrderModalProps> = ({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[500px] bg-white/95 backdrop-blur-sm border border-white/20 shadow-lg">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-semibold">Быстрый расчет стоимости</DialogTitle>
+          <DialogTitle className="text-2xl font-semibold">Индивидуальный запрос</DialogTitle>
           <DialogDescription>
             Заполните форму, и мы рассчитаем стоимость предоставления персонала для вашей компании.
           </DialogDescription>
@@ -117,23 +117,13 @@ const OrderModal: React.FC<OrderModalProps> = ({
           </div>
 
           <div>
-            <Select
+            <Input
+              placeholder="Какой персонал нужен"
               value={selectedService}
-              onValueChange={setSelectedService}
+              onChange={(e) => setSelectedService(e.target.value)}
               required
-            >
-              <SelectTrigger className="bg-white/50">
-                <SelectValue placeholder="Выберите категорию персонала" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="Грузчики">Грузчики</SelectItem>
-                <SelectItem value="Разнорабочие">Разнорабочие</SelectItem>
-                <SelectItem value="Упаковщики">Упаковщики</SelectItem>
-                <SelectItem value="Уборщики">Уборщики</SelectItem>
-                <SelectItem value="Мерчендайзеры">Мерчендайзеры</SelectItem>
-                <SelectItem value="Горничные">Горничные</SelectItem>
-              </SelectContent>
-            </Select>
+              className="bg-white/50"
+            />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -172,7 +162,7 @@ const OrderModal: React.FC<OrderModalProps> = ({
 
           <div className="pt-2">
             <GlassButton type="submit" className="w-full" disabled={loading}>
-              {loading ? "Отправка..." : "Рассчитать стоимость"}
+              {loading ? "Отправка..." : "Получить индивидуальное предложение"}
             </GlassButton>
           </div>
         </form>
