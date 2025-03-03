@@ -37,7 +37,7 @@ const OrderModal: React.FC<OrderModalProps> = ({
   const resetForm = () => {
     setName("");
     setPhone("");
-    setSelectedService(serviceType || "");
+    setSelectedService(""); // Reset to empty so placeholder shows
     setQuantity("");
     setDuration("");
     setMessage("");
@@ -73,12 +73,12 @@ const OrderModal: React.FC<OrderModalProps> = ({
     }
   };
 
-  // Set the service type when the component mounts or when serviceType changes
+  // Set the service type when the modal opens
   useEffect(() => {
-    if (serviceType) {
+    if (open && serviceType) {
       setSelectedService(serviceType);
     }
-  }, [serviceType]);
+  }, [serviceType, open]);
 
   // Reset form when modal is closed
   useEffect(() => {
