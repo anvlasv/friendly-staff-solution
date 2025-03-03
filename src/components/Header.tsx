@@ -27,18 +27,22 @@ const Header: React.FC = () => {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3",
           isScrolled
             ? "bg-white/80 backdrop-blur-md shadow-md"
             : "bg-transparent"
         )}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             {/* Logo */}
             <div className="flex items-center">
-              <a href="#" className="text-2xl font-bold text-primary font-display">
-                СтаффПро
+              <a href="#" className="flex items-center">
+                <img 
+                  src="/lovable-uploads/fc784c1f-bf59-47c4-acfa-2bf355fc2325.png" 
+                  alt="СтаффПро" 
+                  className="h-10 w-auto"
+                />
               </a>
             </div>
 
@@ -110,36 +114,38 @@ const Header: React.FC = () => {
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center space-x-4">
-              <a href="tel:+79240424890" className="text-primary">
-                <Phone className="h-6 w-6" />
-              </a>
-              <a
-                href="https://t.me/tmnsklwork"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary"
-              >
-                <Send className="h-6 w-6" />
-              </a>
-              <a
-                href="https://wa.me/79227837198"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary"
-              >
-                <MessageCircle className="h-6 w-6" />
-              </a>
-              <button
-                onClick={toggleMobileMenu}
-                className="text-foreground focus:outline-none"
-              >
-                {mobileMenuOpen ? (
-                  <X className="h-6 w-6" />
-                ) : (
-                  <Menu className="h-6 w-6" />
-                )}
-              </button>
+            <div className="md:hidden flex items-center">
+              <div className="flex space-x-2">
+                <a
+                  href="https://t.me/tmnsklwork"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary p-1"
+                >
+                  <Send className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://wa.me/79227837198"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary p-1"
+                >
+                  <MessageCircle className="h-5 w-5" />
+                </a>
+                <a href="tel:+79240424890" className="text-primary p-1">
+                  <Phone className="h-5 w-5" />
+                </a>
+                <button
+                  onClick={toggleMobileMenu}
+                  className="text-foreground p-1 focus:outline-none"
+                >
+                  {mobileMenuOpen ? (
+                    <X className="h-5 w-5" />
+                  ) : (
+                    <Menu className="h-5 w-5" />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         </div>
