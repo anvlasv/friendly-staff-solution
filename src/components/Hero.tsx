@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { GlassButton, GlassPanel } from "./ui/Glass";
 import { motion } from "framer-motion";
@@ -79,19 +80,19 @@ const Hero: React.FC = () => {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 bg-white/50 rounded-lg text-center hover:shadow-md transition-all duration-300">
                     <h4 className="font-medium text-sm sm:text-base truncate">Грузчики</h4>
-                    <p className="text-primary font-semibold mt-2">от 200 ₽/час</p>
+                    <p className="text-primary font-semibold mt-2">от 4400 ₽/смена</p>
                   </div>
                   <div className="p-4 bg-white/50 rounded-lg text-center hover:shadow-md transition-all duration-300">
                     <h4 className="font-medium text-sm sm:text-base truncate">Разнорабочие</h4>
-                    <p className="text-primary font-semibold mt-2">от 180 ₽/час</p>
+                    <p className="text-primary font-semibold mt-2">от 4000 ₽/час</p>
                   </div>
                   <div className="p-4 bg-white/50 rounded-lg text-center hover:shadow-md transition-all duration-300">
                     <h4 className="font-medium text-sm sm:text-base truncate">Уборщики</h4>
-                    <p className="text-primary font-semibold mt-2">от 190 ₽/час</p>
+                    <p className="text-primary font-semibold mt-2">от 2500 ₽/час</p>
                   </div>
                   <div className="p-4 bg-white/50 rounded-lg text-center hover:shadow-md transition-all duration-300">
                     <h4 className="font-medium text-sm sm:text-base truncate">Мерчендайзеры</h4>
-                    <p className="text-primary font-semibold mt-2">от 200 ₽/час</p>
+                    <p className="text-primary font-semibold mt-2">от 2500 ₽/час</p>
                   </div>
                 </div>
                 

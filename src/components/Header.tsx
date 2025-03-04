@@ -41,7 +41,7 @@ const Header: React.FC = () => {
                 <img 
                   src="/lovable-uploads/fc784c1f-bf59-47c4-acfa-2bf355fc2325.png" 
                   alt="СтаффПро" 
-                  className="h-10 w-auto"
+                  className="h-14 w-auto" /* Increased from h-10 to h-14 */
                 />
               </a>
             </div>
