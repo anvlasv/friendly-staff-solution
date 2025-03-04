@@ -84,15 +84,15 @@ const Hero: React.FC = () => {
                   </div>
                   <div className="p-4 bg-white/50 rounded-lg text-center hover:shadow-md transition-all duration-300">
                     <h4 className="font-medium text-sm sm:text-base truncate">Разнорабочие</h4>
-                    <p className="text-primary font-semibold mt-2">от 4000 ₽/час</p>
+                    <p className="text-primary font-semibold mt-2">от 4000 ₽/смена</p>
                   </div>
                   <div className="p-4 bg-white/50 rounded-lg text-center hover:shadow-md transition-all duration-300">
                     <h4 className="font-medium text-sm sm:text-base truncate">Уборщики</h4>
-                    <p className="text-primary font-semibold mt-2">от 2500 ₽/час</p>
+                    <p className="text-primary font-semibold mt-2">от 2500 ₽/смена</p>
                   </div>
                   <div className="p-4 bg-white/50 rounded-lg text-center hover:shadow-md transition-all duration-300">
                     <h4 className="font-medium text-sm sm:text-base truncate">Мерчендайзеры</h4>
-                    <p className="text-primary font-semibold mt-2">от 2500 ₽/час</p>
+                    <p className="text-primary font-semibold mt-2">от 2500 ₽/смена</p>
                   </div>
                 </div>
                 
