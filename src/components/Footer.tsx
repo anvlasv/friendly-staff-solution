@@ -1,11 +1,13 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { MessageCircle, Send } from "lucide-react";
+import PrivacyPolicyModal from "./PrivacyPolicyModal";
 
 const Footer: React.FC = () => {
   const year = new Date().getFullYear();
+  const [privacyPolicyOpen, setPrivacyPolicyOpen] = useState(false);
 
   return (
     <footer id="contact" className="bg-gradient-to-t from-blue-50 to-white pt-16 pb-8 relative overflow-hidden">
@@ -25,14 +27,10 @@ const Footer: React.FC = () => {
             <p className="text-muted-foreground mb-6 font-body">
               Профессиональное предоставление персонала для вашего бизнеса. Предоставляем квалифицированных сотрудников для различных задач, включая мерчендайзинг.
             </p>
-            <div className="flex space-x-4">
-              <a href="https://t.me/tmnsklwork" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-primary transition-colors">
-                <Send className="h-5 w-5" />
-              </a>
-              <a href="https://wa.me/79227837198" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-primary transition-colors">
-                <MessageCircle className="h-5 w-5" />
-              </a>
-            </div>
+            <p className="text-sm text-muted-foreground mb-6 font-body">
+              ИП А.Б. Васюков<br />
+              ИНН 860319248616
+            </p>
           </motion.div>
           
           <motion.div
@@ -100,14 +98,12 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  Правовая информация
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => setPrivacyPolicyOpen(true)} 
+                  className="text-muted-foreground hover:text-primary transition-colors text-left"
+                >
                   Политика конфиденциальности
-                </a>
+                </button>
               </li>
               <li>
                 <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">
@@ -150,6 +146,14 @@ const Footer: React.FC = () => {
                   Сб: 10:00 - 15:00
                 </span>
               </li>
+              <li className="flex space-x-4 mt-4">
+                <a href="https://t.me/tmnsklwork" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-primary transition-colors">
+                  <Send className="h-5 w-5" />
+                </a>
+                <a href="https://wa.me/79227837198" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-primary transition-colors">
+                  <MessageCircle className="h-5 w-5" />
+                </a>
+              </li>
             </ul>
           </motion.div>
         </div>
@@ -163,6 +167,8 @@ const Footer: React.FC = () => {
           </p>
         </div>
       </div>
+      
+      <PrivacyPolicyModal open={privacyPolicyOpen} onOpenChange={setPrivacyPolicyOpen} />
     </footer>
   );
 };

@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { GlassCard, GlassButton } from "./ui/Glass";
 import { Input } from "@/components/ui/input";
@@ -19,19 +18,16 @@ const ContactForm: React.FC = () => {
     setLoading(true);
 
     try {
-      // In a real implementation, you would send this data to your backend or email service
       console.log("Sending contact form to barm.70@gmail.com:", {
         name,
         phone,
         message,
       });
 
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       toast.success("Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.");
       
-      // Reset form
       setName("");
       setPhone("");
       setMessage("");
@@ -205,7 +201,7 @@ const ContactForm: React.FC = () => {
                 
                 <div className="pt-4">
                   <p className="text-sm text-muted-foreground">
-                    Мы предоставляем услуги предоставления персонала в Москве и области. 
+                    Мы предоставляем услуги предоставления персонала в Тюмени и районе. 
                     Грузчики на заказ, работники для склада, уборщики для офиса и другие 
                     категории сотрудников доступны для найма на любой срок.
                   </p>
