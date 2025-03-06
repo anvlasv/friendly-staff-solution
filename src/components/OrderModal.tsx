@@ -23,12 +23,12 @@ interface OrderModalProps {
 const OrderModal: React.FC<OrderModalProps> = ({
   open,
   onOpenChange,
-  serviceType = "персонал",
+  serviceType = "",
   isIndividualRequest = false,
 }) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [selectedService, setSelectedService] = useState(serviceType || "");
+  const [selectedService, setSelectedService] = useState("");
   const [quantity, setQuantity] = useState("");
   const [duration, setDuration] = useState("");
   const [message, setMessage] = useState("");
@@ -73,12 +73,12 @@ const OrderModal: React.FC<OrderModalProps> = ({
     }
   };
 
-  // Set the service type when the modal opens
+  // Set the service type when the modal opens, but only if not an individual request
   useEffect(() => {
-    if (open && serviceType) {
+    if (open && serviceType && !isIndividualRequest) {
       setSelectedService(serviceType);
     }
-  }, [serviceType, open]);
+  }, [serviceType, open, isIndividualRequest]);
 
   // Reset form when modal is closed
   useEffect(() => {

@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { GlassCard, GlassButton } from "./ui/Glass";
 import OrderModal from "./OrderModal";
@@ -197,7 +196,7 @@ const PricingSection: React.FC = () => {
           <p className="text-lg mb-6 font-body">
             Нужен персонал другой категории или особые условия сотрудничества?
           </p>
-          <GlassButton onClick={() => openOrderModal("персонал", true)}>
+          <GlassButton onClick={() => openOrderModal("", true)}>
             Получить индивидуальное предложение
           </GlassButton>
         </div>
