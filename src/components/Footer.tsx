@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
       <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-primary/5 blur-3xl z-0"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-gray-200">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -26,10 +26,6 @@ const Footer: React.FC = () => {
             <h4 className="text-xl font-semibold mb-4 font-display">СтаффПро</h4>
             <p className="text-muted-foreground mb-6 font-body">
               Профессиональное предоставление персонала для вашего бизнеса. Предоставляем квалифицированных сотрудников для различных задач, включая мерчендайзинг.
-            </p>
-            <p className="text-sm text-muted-foreground mb-6 font-body">
-              ИП А.Б. Васюков<br />
-              ИНН 860319248616
             </p>
           </motion.div>
           
@@ -157,8 +153,15 @@ const Footer: React.FC = () => {
             </ul>
           </motion.div>
         </div>
+
+        {/* Company info before border */}
+        <div className="text-center mb-8">
+          <p className="text-sm text-muted-foreground font-body font-bold">
+            ИП А.Б. Васюков ИНН 860319248616
+          </p>
+        </div>
         
-        <div className="pt-8 flex flex-col items-center text-center">
+        <div className="pt-8 border-t border-gray-200 flex flex-col items-center text-center">
           <p className="text-sm text-muted-foreground font-body mb-2">
             © {year} СтаффПро. Все права защищены.
           </p>

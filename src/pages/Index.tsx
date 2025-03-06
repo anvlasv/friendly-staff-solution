@@ -18,7 +18,7 @@ const Index = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="flex flex-col min-h-screen"
+        className="flex flex-col min-h-screen max-w-full overflow-x-hidden"
       >
         <Header />
         <main className="flex-grow">

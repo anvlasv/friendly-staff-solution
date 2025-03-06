@@ -7,6 +7,11 @@
   overflow-x: hidden;
 }
 
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -41,4 +46,17 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Fix for mobile view */
+@media (max-width: 768px) {
+  .section-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { Phone, Menu, X, MessageCircle, Send } from "lucide-react";
+import { Phone, Menu, X, MessageCircle, Send, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import OrderModal from "./OrderModal";
@@ -41,7 +41,7 @@ const Header: React.FC = () => {
                 <img 
                   src="/lovable-uploads/fc784c1f-bf59-47c4-acfa-2bf355fc2325.png" 
                   alt="СтаффПро" 
-                  className="h-20 w-auto" /* Increased from h-16 to h-20 */
+                  className="h-24 w-auto" /* Increased from h-20 to h-24 */
                 />
               </a>
             </div>
@@ -115,7 +115,7 @@ const Header: React.FC = () => {
 
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center">
-              <div className="flex space-x-2">
+              <div className="flex items-center space-x-3">
                 <a
                   href="https://t.me/tmnsklwork"
                   target="_blank"
@@ -135,6 +135,14 @@ const Header: React.FC = () => {
                 <a href="tel:+79240424890" className="text-primary p-1">
                   <Phone className="h-5 w-5" />
                 </a>
+                <Button
+                  onClick={() => setModalOpen(true)}
+                  size="sm"
+                  className="bg-primary text-white hover:bg-primary/90 px-2 py-1 h-8"
+                >
+                  <FileText className="h-4 w-4 mr-1" />
+                  <span className="text-xs">Заявка</span>
+                </Button>
                 <button
                   onClick={toggleMobileMenu}
                   className="text-foreground p-1 focus:outline-none"

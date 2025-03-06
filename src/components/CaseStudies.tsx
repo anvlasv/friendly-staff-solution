@@ -40,7 +40,7 @@ const caseStudies = [
     title: "Комплектация нового склада электроники",
     description:
       "Предоставили 10 сотрудников (грузчики, комплектовщики, упаковщики) для запуска нового распределительного центра крупной сети электроники. Команда была сформирована за 3 дня, работы выполнены точно в срок.",
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+    image: "/lovable-uploads/82aca258-c05a-4fe6-9bcc-36b419cf4911.png",
     stats: [
       { label: "Сотрудников", value: "10" },
       { label: "Срок проекта", value: "2 месяца" },
@@ -52,7 +52,7 @@ const caseStudies = [
     title: "Поддержка работы торгового центра",
     description:
       "Обеспечиваем торговый центр персоналом на постоянной основе: уборщики, мерчендайзеры, технический персонал. Гибкий график позволяет точно покрывать потребности в персонале в разное время суток и дни недели.",
-    image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+    image: "/lovable-uploads/45472c93-be92-4ee5-a603-f6cc0951b588.png",
     stats: [
       { label: "Сотрудников", value: "12" },
       { label: "Длительность", value: "1 год" },
