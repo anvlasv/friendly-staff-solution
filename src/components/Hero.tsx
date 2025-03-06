@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
                 transition={{ duration: 0.5 }}
                 className="inline-block px-4 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4"
               >
-                Аутстафинг персонала в Тюмени
+                Аутстафинг персонала
               </motion.span>
               <motion.h1 
                 initial={{ opacity: 0, y: -20 }}
@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
               >
-                Рабочий персонал в Тюмени – <span className="text-primary">быстро, надежно, выгодно</span>
+                Рабочий персонал – <span className="text-primary">быстро, надежно, выгодно</span>
               </motion.h1>
             </div>
             
@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg text-muted-foreground"
             >
-              Предоставляем квалифицированный персонал для решения задач в Тюмени и районе: 
+              Предоставляем квалифицированный персонал для решения задач: 
               разнорабочие, грузчики, упаковщики, уборщики, мерчендайзеры и другие 
               категории работников. Аренда персонала на день или на постоянной основе.
             </motion.p>
@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
                 onClick={() => setModalOpen(true)}
                 className="text-base"
               >
-                Заказать персонал в Тюмени
+                Заказать персонал
               </GlassButton>
               <a href="#pricing">
                 <button className="w-full sm:w-auto px-6 py-3 rounded-lg border border-primary/30 text-primary bg-white/50 backdrop-blur-sm hover:bg-white/80 transition-all duration-300">
@@ -73,8 +73,8 @@ const Hero: React.FC = () => {
             <GlassPanel className="p-8 max-w-md mx-auto animate-float">
               <div className="space-y-6">
                 <div className="text-center">
-                  <h3 className="text-2xl font-semibold mb-4">Быстрый расчет стоимости в Тюмени</h3>
-                  <p className="text-muted-foreground">Узнайте примерную стоимость найма персонала для ваших задач в Тюмени</p>
+                  <h3 className="text-2xl font-semibold mb-4">Быстрый расчет стоимости</h3>
+                  <p className="text-muted-foreground">Узнайте примерную стоимость найма персонала для ваших задач</p>
                 </div>
                 
                 <div className="grid grid-cols-2 gap-4">
@@ -100,7 +100,7 @@ const Hero: React.FC = () => {
                   onClick={() => setModalOpen(true)}
                   className="w-full py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors duration-300"
                 >
-                  Заказать персонал в Тюмени
+                  Заказать персонал
                 </button>
               </div>
             </GlassPanel>

@@ -5,38 +5,38 @@ import { GlassCard } from "./ui/Glass";
 
 const services = [
   {
-    title: "Грузчики в Тюмени",
-    description: "Профессиональная помощь при переездах, погрузке-разгрузке, на складах и производствах в Тюмени.",
+    title: "Грузчики",
+    description: "Профессиональная помощь при переездах, погрузке-разгрузке, на складах и производствах.",
     imageUrl: "https://images.unsplash.com/photo-1501700493788-fa1a4fc9fe62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80",
     bgColor: "bg-blue-900/30",
   },
   {
-    title: "Разнорабочие в Тюмени",
-    description: "Помощь на стройплощадках, складах и производстве для выполнения различных задач в Тюмени и районе.",
+    title: "Разнорабочие",
+    description: "Помощь на стройплощадках, складах и производстве для выполнения различных задач.",
     imageUrl: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
     bgColor: "bg-blue-800/30",
   },
   {
-    title: "Упаковщики в Тюмени",
-    description: "Сотрудники для работы на складах, в логистических центрах и производственных линиях Тюмени.",
+    title: "Упаковщики",
+    description: "Сотрудники для работы на складах, в логистических центрах и производственных линиях.",
     imageUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
     bgColor: "bg-green-800/30",
   },
   {
-    title: "Уборщики в Тюмени",
-    description: "Поддержание чистоты в офисах, торговых центрах, на производствах и других объектах Тюмени.",
+    title: "Уборщики",
+    description: "Поддержание чистоты в офисах, торговых центрах, на производствах и других объектах.",
     imageUrl: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
     bgColor: "bg-green-700/30",
   },
   {
-    title: "Мерчендайзеры в Тюмени",
-    description: "Специалисты по выкладке товара, оформлению витрин и контролю товарных запасов в точках продаж Тюмени.",
+    title: "Мерчендайзеры",
+    description: "Специалисты по выкладке товара, оформлению витрин и контролю товарных запасов в точках продаж.",
     imageUrl: "https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
     bgColor: "bg-blue-700/30",
   },
   {
-    title: "Горничные в Тюмени",
-    description: "Персонал для гостиниц, отелей, хостелов и апартаментов для поддержания чистоты и комфорта в Тюмени.",
+    title: "Горничные",
+    description: "Персонал для гостиниц, отелей, хостелов и апартаментов для поддержания чистоты и комфорта.",
     imageUrl: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
     bgColor: "bg-green-600/30",
   }
@@ -57,7 +57,7 @@ const ServiceSection: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="inline-block px-4 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4"
           >
-            Услуги в Тюмени
+            Услуги
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: -10 }}
@@ -66,7 +66,7 @@ const ServiceSection: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-3xl md:text-4xl font-bold font-display"
           >
-            Аутстаффинг персонала в Тюмени - широкий спектр услуг
+            Аутстаффинг персонала - широкий спектр услуг
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: -10 }}
@@ -75,7 +75,7 @@ const ServiceSection: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto font-body"
           >
-            Мы предоставляем персонал различных специализаций для решения широкого спектра задач в Тюмени и районе. 
+            Мы предоставляем персонал различных специализаций для решения широкого спектра задач. 
             От складских работ и мерчендайзинга до клининга и обслуживания.
           </motion.p>
         </div>
@@ -97,7 +97,7 @@ const ServiceSection: React.FC = () => {
                 <div className="relative h-48">
                   <img
                     src={service.imageUrl}
-                    alt={`${service.title} - аутстаффинг персонала в Тюмени`}
+                    alt={`${service.title} - аутстаффинг персонала`}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
