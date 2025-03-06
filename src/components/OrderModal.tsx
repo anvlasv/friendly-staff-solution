@@ -48,25 +48,37 @@ const OrderModal: React.FC<OrderModalProps> = ({
     setLoading(true);
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      // In a real implementation, you would send this data to your backend
-      console.log("Order submitted:", {
+      // Подготовка данных для отправки
+      const formData = {
         name,
         phone,
         selectedService,
         quantity,
         duration,
         message,
+      };
+
+      // Отправка данных на send-mail.php
+      const response = await fetch('/send-mail.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
 
-      toast.success("Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.");
+      const result = await response.json();
 
-      // Reset form
-      resetForm();
-      onOpenChange(false);
+      if (result.success) {
+        toast.success("Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.");
+        // Сброс формы и закрытие модального окна
+        resetForm();
+        onOpenChange(false);
+      } else {
+        throw new Error(result.message || "Ошибка при отправке заявки");
+      }
     } catch (error) {
+      console.error("Error sending order form:", error);
       toast.error("Произошла ошибка при отправке заявки. Пожалуйста, попробуйте еще раз.");
     } finally {
       setLoading(false);

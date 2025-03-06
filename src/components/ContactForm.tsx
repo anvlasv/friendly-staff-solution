@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { GlassCard, GlassButton } from "./ui/Glass";
 import { Input } from "@/components/ui/input";
@@ -18,19 +19,34 @@ const ContactForm: React.FC = () => {
     setLoading(true);
 
     try {
-      console.log("Sending contact form to barm.70@gmail.com:", {
+      // Подготовка данных для отправки
+      const formData = {
         name,
         phone,
         message,
+      };
+
+      // Отправка данных на send-mail.php
+      const response = await fetch('/send-mail.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
 
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      toast.success("Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.");
-      
-      setName("");
-      setPhone("");
-      setMessage("");
+      const result = await response.json();
+
+      if (result.success) {
+        toast.success("Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.");
+        
+        // Сброс формы после успешной отправки
+        setName("");
+        setPhone("");
+        setMessage("");
+      } else {
+        throw new Error(result.message || "Ошибка при отправке сообщения");
+      }
     } catch (error) {
       toast.error("Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте еще раз.");
       console.error("Error sending contact form:", error);
