@@ -1,4 +1,29 @@
 
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /temp/
+Disallow: /cgi-bin/
+
+# Основные поисковые системы
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Mail.Ru
+Allow: /
+
+# Картинки
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: YandexImages
+Allow: /
+
+# Crawl-delay (задержка между запросами)
+Crawl-delay: 2
+
+# Sitemap
 Sitemap: https://staffpro.ru/sitemap.xml
