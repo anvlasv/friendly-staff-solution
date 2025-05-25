@@ -1,13 +1,14 @@
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { MessageCircle, Send } from "lucide-react";
 import PrivacyPolicyModal from "./PrivacyPolicyModal";
+import { getContactInfo } from "@/utils/contactInfo";
 
 const Footer: React.FC = () => {
   const year = new Date().getFullYear();
   const [privacyPolicyOpen, setPrivacyPolicyOpen] = useState(false);
+  const contactInfo = getContactInfo();
 
   return (
     <footer id="contact" className="bg-gradient-to-t from-blue-50 to-white pt-16 pb-8 relative overflow-hidden">
@@ -119,34 +120,34 @@ const Footer: React.FC = () => {
             <ul className="space-y-4 font-body">
               <li className="flex">
                 <Phone className="h-5 w-5 text-primary shrink-0 mr-3 mt-0.5" />
-                <a href="tel:+79240424890" className="text-muted-foreground hover:text-primary transition-colors">
-                  +7 (924) 042-48-90
+                <a href={`tel:${contactInfo.phone.number}`} className="text-muted-foreground hover:text-primary transition-colors">
+                  {contactInfo.phone.formatted}
                 </a>
               </li>
               <li className="flex">
                 <Mail className="h-5 w-5 text-primary shrink-0 mr-3 mt-0.5" />
-                <a href="mailto:barm.70@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
-                  barm.70@gmail.com
+                <a href={`mailto:${contactInfo.email}`} className="text-muted-foreground hover:text-primary transition-colors">
+                  {contactInfo.email}
                 </a>
               </li>
               <li className="flex">
                 <MapPin className="h-5 w-5 text-primary shrink-0 mr-3 mt-0.5" />
                 <span className="text-muted-foreground">
-                  г. Тюмень, ул. Республики 207, оф. 502
+                  {contactInfo.address}
                 </span>
               </li>
               <li className="flex">
                 <Clock className="h-5 w-5 text-primary shrink-0 mr-3 mt-0.5" />
                 <span className="text-muted-foreground">
-                  Пн-Пт: 9:00 - 18:00<br />
-                  Сб: 10:00 - 15:00
+                  {contactInfo.workingHours.weekdays}<br />
+                  {contactInfo.workingHours.saturday}
                 </span>
               </li>
               <li className="flex space-x-4 mt-4">
-                <a href="https://t.me/tmnsklwork" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-primary transition-colors">
+                <a href={contactInfo.telegram} target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-primary transition-colors">
                   <Send className="h-5 w-5" />
                 </a>
-                <a href="https://wa.me/79227837198" target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-primary transition-colors">
+                <a href={contactInfo.whatsapp} target="_blank" rel="noopener noreferrer" className="h-10 w-10 rounded-full bg-white shadow-sm flex items-center justify-center text-muted-foreground hover:text-primary transition-colors">
                   <MessageCircle className="h-5 w-5" />
                 </a>
               </li>
@@ -154,7 +155,6 @@ const Footer: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Company info before border */}
         <div className="text-center mb-8">
           <p className="text-sm text-muted-foreground font-body font-bold">
             ИП А.Б. Васюков ИНН 860319248616

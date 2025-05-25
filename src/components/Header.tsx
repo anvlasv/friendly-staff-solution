@@ -4,11 +4,14 @@ import { Phone, Menu, X, MessageCircle, Send, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import OrderModal from "./OrderModal";
+import { getContactInfo } from "@/utils/contactInfo";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+
+  const contactInfo = getContactInfo();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +44,7 @@ const Header: React.FC = () => {
                 <img 
                   src="/lovable-uploads/fc784c1f-bf59-47c4-acfa-2bf355fc2325.png" 
                   alt="СтаффПро" 
-                  className="h-24 w-auto" /* Increased from h-20 to h-24 */
+                  className="h-24 w-auto"
                 />
               </a>
             </div>
@@ -83,14 +86,14 @@ const Header: React.FC = () => {
             {/* Phone Number and Messengers */}
             <div className="hidden md:flex items-center space-x-4">
               <a
-                href="tel:+79240424890"
+                href={`tel:${contactInfo.phone.number}`}
                 className="flex items-center text-foreground hover:text-primary transition-colors duration-300"
               >
                 <Phone className="mr-2 h-4 w-4" />
-                <span>+7 (924) 042-48-90</span>
+                <span>{contactInfo.phone.formatted}</span>
               </a>
               <a
-                href="https://t.me/tmnsklwork"
+                href={contactInfo.telegram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-colors duration-300"
@@ -98,7 +101,7 @@ const Header: React.FC = () => {
                 <Send className="h-5 w-5" />
               </a>
               <a
-                href="https://wa.me/79227837198"
+                href={contactInfo.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-colors duration-300"
@@ -117,7 +120,7 @@ const Header: React.FC = () => {
             <div className="md:hidden flex items-center">
               <div className="flex items-center space-x-3">
                 <a
-                  href="https://t.me/tmnsklwork"
+                  href={contactInfo.telegram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary p-1"
@@ -125,14 +128,14 @@ const Header: React.FC = () => {
                   <Send className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://wa.me/79227837198"
+                  href={contactInfo.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary p-1"
                 >
                   <MessageCircle className="h-5 w-5" />
                 </a>
-                <a href="tel:+79240424890" className="text-primary p-1">
+                <a href={`tel:${contactInfo.phone.number}`} className="text-primary p-1">
                   <Phone className="h-5 w-5" />
                 </a>
                 <Button

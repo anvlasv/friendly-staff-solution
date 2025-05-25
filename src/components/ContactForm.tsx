@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { GlassCard, GlassButton } from "./ui/Glass";
 import { Input } from "@/components/ui/input";
@@ -7,12 +6,15 @@ import { toast } from "sonner";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import InputMask from "react-input-mask";
+import { getContactInfo } from "@/utils/contactInfo";
 
 const ContactForm: React.FC = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const contactInfo = getContactInfo();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -166,7 +168,7 @@ const ContactForm: React.FC = () => {
                   <div>
                     <h4 className="font-medium mb-1">Адрес офиса</h4>
                     <p className="text-muted-foreground">
-                      г. Тюмень, ул. Республики 207, оф. 502
+                      {contactInfo.address}
                     </p>
                   </div>
                 </div>
@@ -177,10 +179,10 @@ const ContactForm: React.FC = () => {
                     <h4 className="font-medium mb-1">Телефон</h4>
                     <p className="text-muted-foreground">
                       <a 
-                        href="tel:+79240424890" 
+                        href={`tel:${contactInfo.phone.number}`}
                         className="hover:text-primary transition-colors"
                       >
-                        7-924-042-48-90
+                        {contactInfo.phone.display}
                       </a>
                     </p>
                   </div>
@@ -192,10 +194,10 @@ const ContactForm: React.FC = () => {
                     <h4 className="font-medium mb-1">Email</h4>
                     <p className="text-muted-foreground">
                       <a 
-                        href="mailto:barm.70@gmail.com" 
+                        href={`mailto:${contactInfo.email}`}
                         className="hover:text-primary transition-colors"
                       >
-                        barm.70@gmail.com
+                        {contactInfo.email}
                       </a>
                     </p>
                   </div>
@@ -206,11 +208,11 @@ const ContactForm: React.FC = () => {
                   <div>
                     <h4 className="font-medium mb-1">Часы работы</h4>
                     <p className="text-muted-foreground">
-                      Пн-Пт: 9:00 - 18:00
+                      {contactInfo.workingHours.weekdays}
                       <br />
-                      Сб: 10:00 - 15:00
+                      {contactInfo.workingHours.saturday}
                       <br />
-                      Вс: выходной
+                      {contactInfo.workingHours.sunday}
                     </p>
                   </div>
                 </div>
